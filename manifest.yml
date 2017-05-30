@@ -1,0 +1,11 @@
+applications:
+- path: target/JavaMySQLHackathonExampleApp.war
+  memory: 256M
+  instances: 1
+  domain: mybluemix.net
+  name: Java-MySQL-Hackathon-Example
+  disk_quota: 1024M
+  buildpack: java_buildpack
+  services:
+    - Compose for MySQL-java
+    - Visual Recognition-java
