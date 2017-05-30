@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <ul>
+ 		 	<li><a class="active" href="index.html">U N I</a></li>
+	 	<li><a href="feed.html">Feed</a></li>
+  		<li><a href="http://uvm.libcal.com/rooms.php?i=2001">Request A Study Room!</a></li>
+  		<li><a href="account.html">Sign Up!</a></li>
+  		<li><a href="form.html">Review a Location</a></li>
+  </ul>
+  
+
+<script type="text/javascript">
+
+	xhrGet("geoloc", function(responseText){
+	// add to document
+	var mytitle = document.getElementById('loc');
+	mytitle.innerHTML = responseText;
+
+}, function(err){
+	console.log(err);
+});
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPosition(position) {
+	document.getElementById("location").value = 'Waterman'
+//    x.innerHTML = "Latitude: " + position.coords.latitude + 
+ //   "<br>Longitude: " + position.coords.longitude;
+    
+}
+
+function print(){
+	x.innerHTML = "Processing your request.";
+}
+
+</script>
+
+<title>Form</title>
+   
+
+
+    <meta charset="utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="description" content="">
+    <meta name="Liv Jensen">
+   
+	<link rel = "stylesheet" type = "text/css" href = "./css/bootstrap.min.css">
+
+	</head>	
+<body onload="getLocation()">
+	<h1 class = "formtitle">Form</h1>
+	
+	
+	<div class = "form">
+	
+	<form name="location" method="post" action="index.html">
+	location: <input id = "location" type = "text" name = "location value=""/>
+	<input type = "submit" value = "go"/>
+	</form>
+<!--  
+		<select name = "location">
+		
+			<option value = "Library">Library</option>
+			<option id = "Waterman" value = "Waterman">Waterman</option>
+			<option value = "Muddy Waters">Muddy Waters</option>
+			<option value = "Fish Bowl">Fish Bowl</option>
+		
+		
+		</select>k
+-->			
+		<select name = "Rating">
+			<option>1</option>
+			<option>2</option>
+			<option>3</option>
+			<option>4</option>
+			<option>5</option>
+			<option>6</option>
+			
+		
+		</select>
+	</div>
+
+
+</body>
+
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<body onload="popup('http://localhost:8080/U-N-I/geoloc', 'geoloc')">  <p>x</p> </body>
+<script type="text/javascript" src="geolocation.js"></script>
+    <p>Click the button to get your coordinates.</p>
+    
+<body onload="getLocation()">
+<p>Click the button to get your coordinates.</p>
+<button onclick="getLocation()">Try It</button>
+<SCRIPT TYPE="text/javascript"> function popup(mylink, windowname) { if (! window.focus)return true; var href; if (typeof(mylink) == 'string') href=mylink; else href=mylink.href; window.open(href, windowname, 'width=400,height=200,scrollbars=yes'); return false; } </SCRIPT>
+
+
+
+
+<p id="demo"></p>
+<p id = "demo2"></p>
+<form name="location" method="post" action="geoloc" ? >
+	longitude: <input id = "longitude" type = "text" name = "longitude" value=""/> <br/>
+	latitude: <input id = "latitude" type = "text" name = "latitude" value=""/> <br/>
+	<input type = "submit" value = "go"/>
+</form>
+<script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPosition(position) {
+	document.getElementById("longitude").value = position.coords.longitude;
+	document.getElementById("latitude").value = position.coords.latitude;
+//    x.innerHTML = "Latitude: " + position.coords.latitude + 
+ //   "<br>Longitude: " + position.coords.longitude;
+    
+}
+</script>
+	
+
+</body>
+</html>
